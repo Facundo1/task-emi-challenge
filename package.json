@@ -1,0 +1,17 @@
+{
+  "name": "emi-challenge",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Emi React Challenge — recruiter dashboard for screened candidates",
+  "scripts": {
+    "dev": "concurrently -k -n server,client -c yellow,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix server && npm run build --prefix client",
+    "lint": "npm run lint --prefix server && npm run lint --prefix client",
+    "typecheck": "npm run typecheck --prefix server && npm run typecheck --prefix client",
+    "test": "npm run test --prefix server && npm run test --prefix client",
+    "validate": "npm run lint && npm run typecheck && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
