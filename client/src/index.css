@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    background: #0e0d0b;
+  }
+
+  body {
+    font-family: theme("fontFamily.sans");
+    font-feature-settings: "ss01", "ss02", "cv11";
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 50% -10%,
+        rgba(216, 255, 61, 0.06),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 100% 0%,
+        rgba(255, 100, 82, 0.05),
+        transparent 55%
+      );
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+    opacity: 0.45;
+    mix-blend-mode: overlay;
+  }
+
+  ::selection {
+    background: #d8ff3d;
+    color: #0e0d0b;
+  }
+
+  input,
+  button,
+  select,
+  textarea {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-eyebrow uppercase text-ink-3;
+  }
+
+  .rule-h {
+    @apply h-px w-full bg-rule;
+  }
+
+  .num {
+    font-feature-settings: "tnum", "lnum";
+  }
+
+  .ticker-bar {
+    box-shadow: inset 3px 0 0 currentColor;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-1 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas;
+  }
+}
